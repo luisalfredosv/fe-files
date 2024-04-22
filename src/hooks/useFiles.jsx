@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 export const useFiles = () => {
+	const URI_API = "http://localhost:3002";
 	const location = useLocation();
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(true);
@@ -18,7 +19,7 @@ export const useFiles = () => {
 
 				if (queryParamValue) {
 					const secondResponse = await fetch(
-						`http://localhost:3002/files/data?fileName=${queryParamValue}`
+						`${URI_API}/files/data?fileName=${queryParamValue}`
 					);
 					if (!secondResponse.ok) {
 						throw new Error(
@@ -29,9 +30,7 @@ export const useFiles = () => {
 
 					setData([secondApiData]);
 				} else {
-					const response = await fetch(
-						"http://localhost:3002/files/data"
-					);
+					const response = await fetch(`${URI_API}/files/data`);
 					if (!response.ok) {
 						throw new Error(
 							"Failed to fetch data from the first API"
