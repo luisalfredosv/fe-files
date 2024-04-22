@@ -29,6 +29,14 @@ export const TableFiles = ({ filesData }) => {
 						</tr>
 					))
 				)}
+
+				{!filesData.length > 0 && (
+					<tr>
+						<td colSpan={4}>
+							<p>No hay datos para mostrar</p>
+						</td>
+					</tr>
+				)}
 			</tbody>
 		</Table>
 	);
