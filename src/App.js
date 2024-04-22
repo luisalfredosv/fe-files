@@ -1,16 +1,15 @@
 import "./App.css";
-import { Container, Navbar } from "react-bootstrap";
+
+import { Default } from "./layouts/default";
+
+import { RouterProvider } from "react-router-dom";
+import { routes } from "./router/routes";
 
 function App() {
 	return (
-		<div>
-			<Navbar expand='lg' className='bg-body-tertiary'>
-				<Container>
-					<Navbar.Brand href='#home'>React Test App</Navbar.Brand>
-					<Navbar.Toggle aria-controls='basic-navbar-nav' />
-				</Container>
-			</Navbar>
-		</div>
+		<Default>
+			<RouterProvider router={routes} />
+		</Default>
 	);
 }
 
